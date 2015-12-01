@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "votenorestaurante",
+    "packageName": "com.isengardcode.votenorestaurante",
+    "packageFolder": "com/isengardcode/votenorestaurante",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": true,
+    "rememberMeKey": "e213d58ecbdaa3871c759b289e0ff45797df535e",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}
