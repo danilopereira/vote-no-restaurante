@@ -1,0 +1,18 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "votes",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20151203182921",
+    "dto": "mapstruct",
+    "pagination": "no"
+}
