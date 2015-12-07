@@ -11,6 +11,11 @@ angular.module('votenorestauranteApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
         });
+    })
+    .factory('Vote', function($resource, DateUtils){
+        return $resource("/api/restaurants/vote/:id", {}, {
+        'vote':{ method : 'PUT'}
+        })
     });

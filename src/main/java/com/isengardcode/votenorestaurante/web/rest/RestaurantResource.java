@@ -120,4 +120,16 @@ public class RestaurantResource {
         restaurantRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("restaurant", id.toString())).build();
     }
+
+    @RequestMapping(value = "/restaurant/vote/{id}",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> insertVotesById(@PathVariable Long id){
+        log.debug("REST insert votes in Restaurant by id : {}", id);
+        Restaurant restaurant = restaurantRepository.findOne(id);
+        restaurant.setVotes(restaurant.getVotes()+1);
+        restaurantRepository.save(restaurant);
+
+        return ResponseEntity.ok().build();
+    }
 }
