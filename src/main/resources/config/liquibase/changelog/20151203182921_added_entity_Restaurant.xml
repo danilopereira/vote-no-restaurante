@@ -24,6 +24,21 @@
             <column name="name" type="varchar(255)"/>
             <column name="votes" type="bigint"/>
         </createTable>
-        
+        <insert tableName="restaurant">
+            <column name="name" type="varchar(255)" value="McDonalds"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="name" type="varchar(255)" value="Burger King"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="name" type="varchar(255)" value="Subway"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="name" type="varchar(255)" value="Bobs"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="name" type="varchar(255)" value="Habibs"/>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>

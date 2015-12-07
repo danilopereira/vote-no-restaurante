@@ -7,5 +7,18 @@ angular.module('votenorestauranteApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
 
-        $scope.restaurants = Restaurant.query();
+        $scope.restaurants = [];
+        $scope.searchRandonRest = {};
+
+        $scope.searchRandonRest = function(){
+            var id = Math.floor((Math.random() * 5) + 1);
+            var element = Restaurant.get({id:id});
+            $scope.restaurants.push(element);
+            id = Math.floor((Math.random() * 5) + 1);
+            element = Restaurant.get({id:id});
+            $scope.restaurants.push(element);
+        }
+
+
+        $scope.searchRandonRest();
     });
