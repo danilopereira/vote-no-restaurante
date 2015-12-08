@@ -8,6 +8,7 @@ angular.module('votenorestauranteApp')
         });
 
         $scope.restaurants = [];
+        $scope.restAux = [];
         $scope.searchRandonRest = {};
         $scope.vote = {};
 
@@ -15,11 +16,9 @@ angular.module('votenorestauranteApp')
 //        Restaurant.get({id: 2}, function(result) {
 //                        console.log(result.votes);
 //                    });
-            var id1 = Math.floor((Math.random() * 5));
-            var id2 = Math.floor((Math.random() * 5));
             Restaurant.query(function(result) {
-                        $scope.restaurants.push(result[id1]);
-                        $scope.restaurants.push(result[id2]);
+                        $scope.restaurants = result;
+                        $scope.restAux = result;
                         console.log($scope.restaurants);
             });
 
