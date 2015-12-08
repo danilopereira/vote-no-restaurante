@@ -1,27 +1,14 @@
 'use strict';
 
 angular.module('votenorestauranteApp')
-    .controller('VoterController', function ($scope, $state, $modal, Voter) {
+    .controller('VoterController', function($scope, Voter, $location) {
 
-        $scope.voters = [];
-        $scope.loadAll = function() {
-            Voter.query(function(result) {
-               $scope.voters = result;
-            });
-        };
-        $scope.loadAll();
+                                         $scope.save = function () {
+                                             $scope.isSaving = true;
+                                             Voter.save($scope.voter);
+                                             $location.path("/restaurants");
 
+                                         };
 
-        $scope.refresh = function () {
-            $scope.loadAll();
-            $scope.clear();
-        };
+                                 });
 
-        $scope.clear = function () {
-            $scope.voter = {
-                name: null,
-                email: null,
-                id: null
-            };
-        };
-    });

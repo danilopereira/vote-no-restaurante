@@ -7,7 +7,6 @@ angular.module('votenorestauranteApp')
                 parent: 'entity',
                 url: '/restaurants',
                 data: {
-                    authorities: ['ROLE_USER'],
                     pageTitle: 'votenorestauranteApp.restaurant.home.title'
                 },
                 views: {
@@ -28,7 +27,6 @@ angular.module('votenorestauranteApp')
                 parent: 'entity',
                 url: '/restaurant/{id}',
                 data: {
-                    authorities: ['ROLE_USER'],
                     pageTitle: 'votenorestauranteApp.restaurant.detail.title'
                 },
                 views: {
@@ -51,7 +49,6 @@ angular.module('votenorestauranteApp')
                 parent: 'restaurant',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
@@ -78,7 +75,6 @@ angular.module('votenorestauranteApp')
                 parent: 'restaurant',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
@@ -100,9 +96,6 @@ angular.module('votenorestauranteApp')
             .state('restaurant.delete', {
                 parent: 'restaurant',
                 url: '/{id}/delete',
-                data: {
-                    authorities: ['ROLE_USER'],
-                },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
                         templateUrl: 'scripts/app/entities/restaurant/restaurant-delete-dialog.html',

@@ -1,50 +1,29 @@
-<div>
-    <h2 translate="votenorestauranteApp.voter.home.title">Voters</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="voter.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span translate="votenorestauranteApp.voter.home.createLabel">Create a new Voter</span>
-                </button>
-            </div>
-        </div>
-    </div>
+<form name="editForm" role="form" novalidate ng-submit="save()">
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th translate="global.field.id">ID</th>
-                    <th translate="votenorestauranteApp.voter.name">Name</th>
-                    <th translate="votenorestauranteApp.voter.email">Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="voter in voters track by voter.id">
-                    <td><a ui-sref="voter.detail({id:voter.id})">{{voter.id}}</a></td>
-                    <td>{{voter.name}}</td>
-                    <td>{{voter.email}}</td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="voter.detail({id:voter.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="voter.edit({id:voter.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="voter.delete({id:voter.id})"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myVoterLabel">Por Favor, Insira Seus Dados</h4>
     </div>
-</div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label class="control-label" translate="votenorestauranteApp.voter.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                   ng-model="voter.name"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="votenorestauranteApp.voter.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                   ng-model="voter.email"
+            />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

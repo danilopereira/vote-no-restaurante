@@ -1,14 +1,12 @@
 <div ng-cloak>
     <div class="row">
-
-        <div ng-repeat="(key, value) in restView track by $index">
-            <div style="float:left; width: 500px; height: 500px; text-align:center">
-                <img src="../assets/images/{{value.name}}.png" style="width:200px;height:240px;">
+        <h2 align="center" style="margin-bottom: 50px;"><b>QUAL O MELHOR RESTAURANTE?</b></h2>
+        <div ng-repeat="(key, value) in restView track by $index" style="float:left; width: 500px; text-align:center">
+                <img src="../assets/images/{{value.name}}.png" style="width:50%;height:240px;">
                 <br>
                 <button type="button" class="btn btn-default" aria-label="Center Align" ng-click="vote.doClick(value)" style="margin-top:50px;">
                     <b>VOTE</b>
                 </button>
-            </div>
         </div>
     </div>
 </div>

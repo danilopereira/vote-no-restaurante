@@ -1,13 +1,9 @@
 <div>
-    <h2 translate="votenorestauranteApp.restaurant.home.title">Restaurants</h2>
+    <h2>Ranking</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="restaurant.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span translate="votenorestauranteApp.restaurant.home.createLabel">Create a new Restaurant</span>
-                </button>
-            </div>
+
         </div>
     </div>
 
@@ -15,34 +11,15 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th translate="global.field.id">ID</th>
-                    <th translate="votenorestauranteApp.restaurant.name">Name</th>
-                    <th translate="votenorestauranteApp.restaurant.votes">Votes</th>
+                    <th translate="votenorestauranteApp.restaurant.name">Restaurante</th>
+                    <th translate="votenorestauranteApp.restaurant.votes">Votos</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="restaurant in restaurants track by restaurant.id">
-                    <td><a ui-sref="restaurant.detail({id:restaurant.id})">{{restaurant.id}}</a></td>
                     <td>{{restaurant.name}}</td>
                     <td>{{restaurant.votes}}</td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="restaurant.detail({id:restaurant.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="restaurant.edit({id:restaurant.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="restaurant.delete({id:restaurant.id})"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
-                        </button>
-                    </td>
                 </tr>
             </tbody>
         </table>
