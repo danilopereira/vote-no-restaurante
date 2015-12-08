@@ -1,0 +1,23 @@
+{
+    "votenorestauranteApp": {
+        "voter" : {
+            "home": {
+                "title": "Voters",
+                "createLabel": "Créer un nouveau Voter",
+                "createOrEditLabel": "Créer ou éditer un Voter"
+            },
+            "created": "Un nouveau Voter a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Voter avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Voter avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Voter {{ id }} ?"
+            },
+            "detail": {
+                "title": "Voter"
+            },
+            "name": "Name",
+            "email": "Email"
+        }
+    }
+}
+

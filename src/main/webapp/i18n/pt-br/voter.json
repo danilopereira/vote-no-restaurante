@@ -1,0 +1,19 @@
+{
+    "votenorestauranteApp": {
+        "voter" : {
+            "home": {
+                "title": "Voters",
+                "createLabel": "Create a new Voter",
+                "createOrEditLabel": "Create or edit a Voter"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Voter {{ id }}?"
+            },
+            "detail": {
+                "title": "Voter"
+            },
+            "name": "Name",
+            "email": "Email"
+        }
+    }
+}

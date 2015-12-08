@@ -1,0 +1,50 @@
+<div>
+    <h2 translate="votenorestauranteApp.voter.home.title">Voters</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="voter.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="votenorestauranteApp.voter.home.createLabel">Create a new Voter</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="votenorestauranteApp.voter.name">Name</th>
+                    <th translate="votenorestauranteApp.voter.email">Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="voter in voters track by voter.id">
+                    <td><a ui-sref="voter.detail({id:voter.id})">{{voter.id}}</a></td>
+                    <td>{{voter.name}}</td>
+                    <td>{{voter.email}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="voter.detail({id:voter.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="voter.edit({id:voter.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="voter.delete({id:voter.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
