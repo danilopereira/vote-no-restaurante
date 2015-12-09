@@ -54,25 +54,26 @@ module.exports = function (grunt) {
                 exclude: [
                     /angular-i18n/  // localizations are loaded dynamically
                 ]
-            },
-            test: {
-                src: 'src/test/javascript/karma.conf.js',
-                exclude: [/angular-i18n/, /angular-scenario/],
-                ignorePath: /\.\.\/\.\.\//, // remove ../../ from paths of injected javascripts
-                devDependencies: true,
-                fileTypes: {
-                    js: {
-                        block: /(([\s\t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                        detect: {
-                            js: /'(.*\.js)'/gi
-                        },
-                        replace: {
-                            js: '\'{{filePath}}\','
-                        }
-                    }
-                }
             }
         },
+//                     test: {
+//                         src: 'src/test/javascript/karma.conf.js',
+//                         exclude: [/angular-i18n/, /angular-scenario/],
+//                         ignorePath: /\.\.\/\.\.\//, // remove ../../ from paths of injected javascripts
+//                         devDependencies: true,
+//                         fileTypes: {
+//                             js: {
+//                                 block: /(([\s\t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+//                                 detect: {
+//                                     js: /'(.*\.js)'/gi
+//                                 },
+//                                 replace: {
+//                                     js: '\'{{filePath}}\','
+//                                 }
+//                             }
+//                         }
+//
+//                 },
         browserSync: {
             dev: {
                 bsFiles: {
@@ -81,7 +82,7 @@ module.exports = function (grunt) {
                         'src/main/webapp/**/*.json',
                         'src/main/webapp/assets/styles/**/*.css',
                         'src/main/webapp/scripts/**/*.{js,html}',
-                        'src/main/webapp/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+//                        'src/main/webapp/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
                         'tmp/**/*.{css,js}'
                     ]
                 }
@@ -127,7 +128,6 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/**/*.js',
                         '<%= yeoman.dist %>/assets/styles/**/*.css',
-                        '<%= yeoman.dist %>/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
                         '<%= yeoman.dist %>/assets/fonts/*'
                     ]
                 }
@@ -167,9 +167,15 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/main/webapp/assets/images',
-                    src: '**/*.{jpg,jpeg}', // we don't optimize PNG files as it doesn't work on Linux. If you are not on Linux, feel free to use '**/*.{png,jpg,jpeg}'
+                    src: '{,*/}*.{jpg,jpeg}', // we don't optimize PNG files as it doesn't work on Linux. If you are not on Linux, feel free to use '**/*.{png,jpg,jpeg}'
                     dest: '<%= yeoman.dist %>/assets/images'
-                }]
+                }, {
+                                  expand : true,
+                                  flatten : true,
+                                  cwd : '<%= yeoman.app %>/styles',
+                                  src : '**/*.{png,jpg,jpeg,gif}',
+                                  dest : '<%= yeoman.dist %>/styles/images'
+                              }]
             }
         },
         svgmin: {
@@ -352,9 +358,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
-        'wiredep:test',
-        'ngconstant:dev',
-        'karma'
+//        'wiredep:test',
+        'ngconstant:dev'
     ]);
 
     grunt.registerTask('build', [
