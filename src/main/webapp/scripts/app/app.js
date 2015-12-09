@@ -26,7 +26,7 @@ angular.module('votenorestauranteApp', ['LocalStorageModule', 'tmh.dynamicLocale
             $rootScope.toStateParams = toStateParams;
 
             if (Principal.isIdentityResolved()) {
-                Auth.authorize();
+//                Auth.authorize();
             }
 
             // Update the language
@@ -89,11 +89,6 @@ angular.module('votenorestauranteApp', ['LocalStorageModule', 'tmh.dynamicLocale
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('global');
                 }]
