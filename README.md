@@ -28,6 +28,11 @@ Add the `-h` flag on any command to see how you can use it. For example, `bower 
 
 # Building for production
 
+Create the Schema to database
+´´´sql
+    CREATE DATABASE votenorestaurante;
+´´´
+
 To optimize the votenorestaurante client for production, run:
 
     mvn -Pprod clean package
