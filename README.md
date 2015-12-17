@@ -1,5 +1,7 @@
 # votenorestaurante
 
+Link to access the system on Digital Ocean : http://159.203.5.242:8080/#/
+
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
